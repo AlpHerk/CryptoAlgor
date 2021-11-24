@@ -3,7 +3,7 @@ import time
 
 def permutate(bitstr, table):
     """ 通用置换运算
-        @table: 置换盒
+        * table : 置换盒
     """
     res = ""
     for i in table:   
@@ -13,8 +13,8 @@ def permutate(bitstr, table):
 
 def leftShift(key, num):
     """ 子密钥LR: 左循环移位
-        @key: 待移位的子密钥
-        @num: 列表左移位位数
+        * key : 待移位的子密钥
+        * num : 列表左移位位数
     """
     return key[num:] + key[0:num]
 
@@ -28,7 +28,7 @@ def XOR(str1, str2):
 
 def Sbox(binstr):
     """ S盒置换: 48位->32位 """
-    box = 0 # S盒的索引
+    box = 0     # S盒的索引
     res = ""
     for i in range(0, len(binstr), 6):
         tmp = binstr[i:i+6]
@@ -45,8 +45,8 @@ def Sbox(binstr):
 
 def createSubKey(key64):
     """ 64位母密钥->16轮的48位子密钥列表
-        @key64: 输入的64位加密密钥
-        @return: 16轮子密钥列表
+        * key64 : 输入的64位加密密钥
+        * return : 16轮子密钥列表
     """
     subkey = []
     key56  = permutate(key64, PC_1)       # 64位密钥压缩置换
@@ -61,8 +61,8 @@ def createSubKey(key64):
 
 def turnFunction(R32b, subkey):
     """ 轮结构中的F函数
-        @R32b: F函数输入参数 32位的右明文
-        @subkey: F函数输入参数 48位子密钥
+        * R32b : F函数输入参数 32位的右明文
+        * subkey : F函数输入参数 48位子密钥
     """
     R48b = permutate(R32b, E) # E盒扩展: 右明文32位->48位
     R48b = XOR(R48b, subkey)  # 两异或:  扩展流与子密钥异或
