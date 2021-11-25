@@ -70,4 +70,4 @@ if __name__ == '__main__':
     ellip = ECC(1, 1, 23)
     P, Q  = (3, 10), (9, 7)
     print("P+Q:", ellip.add(P, Q))
-    print("", ellip.mul(P, 2))
+    print("2*P:", ellip.mul(P, 2))
