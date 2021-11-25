@@ -1,10 +1,8 @@
 from ellipticc import ECC
 
-
 ellip = ECC(1, 1, 23)
-P, Q  = (3, 10), (9, 7)
-addPQ = ellip.add(P, Q)
-add2P = ellip.add(P, P)
+P = ellip.point(3, 10)
+Q = ellip.point(9, 7)
 
-print("P+Q:", addPQ)
-print("P+P:", add2P)
+print("P+Q:", P + Q)
+print("2*P:", 2 * P)
