@@ -39,6 +39,18 @@
 >例题实现在 rsa.py 的 __main__ 中
 
 
+---
+### [4.ECC加密模块 EllipCC][4]
+> 文件名|文件简述
+> --|--
+> \_\_init\_\_.py|  初始化模块路径，以供其他脚本导入模块
+> __util.py     |   基本算法、求平方剩余、求同余式等  
+> ecc.py        |   ECC椭圆曲线类 
+
+>例题实现在 ecc.py 的 __main__ 中
+
+
 [1]: https://blog.csdn.net/Alpherkin/article/details/121021025
 [2]: https://blog.csdn.net/Alpherkin/article/details/121198150
 [3]: https://blog.csdn.net/Alpherkin/article/details/121265516
+[4]: https://blog.csdn.net/Alpherkin/article/details/121265516
