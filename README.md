@@ -1,9 +1,8 @@
 # 现代密码学Python学习源码及实例
 # 目录: 古典加密、DES加密、RSA加密、ECC加密
 
+
 ### [1.古典加密模块 ClassCipher][1]
-> 模块路径: ClassCipher/classcipher  
->
 > 文件名|文件简述
 > --|--
 > \_\_init\_\_.py|  初始化模块路径，以供其他脚本导入模块
@@ -12,8 +11,6 @@
 > shift.py      |   移位密码
 > affine.py     |   仿射变换
 > polyalphabet.py|  多表代换
-
-> Exam, Exerc等.py文件为《现代密码学第4版 杨波》例题及习题  
 
 
 ---
@@ -35,7 +32,7 @@
 > \_\_init\_\_.py|  初始化模块路径，以供其他脚本导入模块
 > __util.py     |   基本算法、编码操作等  
 > rsa.py        |   RSA加解密核心  
-
+s
 >例题实现在 rsa.py 的 __main__ 中
 
 
@@ -49,6 +46,8 @@
 
 > 例题实现在 ecc.py 的 __main__ 中
 > 例题中均使用 有运算符重载的 ecc.py, 无运算符重载的简单 ecc2.py 仅供参考
+
+> Exam, Exerc等.py文件为《现代密码学第4版 杨波》例题及习题
 
 
 [1]: https://blog.csdn.net/Alpherkin/article/details/121021025

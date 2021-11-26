@@ -9,7 +9,7 @@ def gcd(x, y):
 def extendGcd(a, b):
 	""" 扩展欧几里德算法 """
 	if b == 0:
-		return 1, 0
+		return a, b
 	else:
 		x, y = extendGcd(b, a % b)
 		x, y = y, x - (a//b) * y
