@@ -1,6 +1,7 @@
 from __table import *
 import time
 
+
 def permutate(bitstr, table):
     """ 通用置换运算
         * table : 置换盒
@@ -11,12 +12,14 @@ def permutate(bitstr, table):
     
     return res
 
+
 def leftShift(key, num):
     """ 子密钥LR: 左循环移位
         * key : 待移位的子密钥
         * num : 列表左移位位数
     """
     return key[num:] + key[0:num]
+
 
 def XOR(str1, str2):
     """ 两比特串进行异或 """
@@ -25,6 +28,7 @@ def XOR(str1, str2):
         xor = int(str1[i]) ^ int(str2[i])
         res += str(xor)
     return res
+
 
 def Sbox(binstr):
     """ S盒置换: 48位->32位 """
@@ -43,6 +47,7 @@ def Sbox(binstr):
 
     return res
 
+
 def createSubKey(key64):
     """ 64位母密钥->16轮的48位子密钥列表
         * key64 : 输入的64位加密密钥
@@ -59,6 +64,7 @@ def createSubKey(key64):
 
     return subkey
 
+
 def turnFunction(R32b, subkey):
     """ 轮结构中的F函数
         * R32b : F函数输入参数 32位的右明文
@@ -70,6 +76,7 @@ def turnFunction(R32b, subkey):
     Fout = permutate(R32b, P) # P盒置换
 
     return Fout
+
 
 def strToBit(plaintext):
     """ 字符串->二进制比特流 """
@@ -84,6 +91,7 @@ def strToBit(plaintext):
 
     return binstr
 
+
 def bitToStr(binstr):
     """ 比特流->字符串 """
     res = ""
@@ -96,6 +104,7 @@ def bitToStr(binstr):
     
     return res
 
+
 def hexToBit(hexstr):
     """ 十六进制字符串->二进制比特流(每字符4位) """
     binstr = ""
@@ -105,12 +114,14 @@ def hexToBit(hexstr):
         binstr += (4-len(octbin)) * '0' + octbin
     return binstr
 
+
 def bitToHex(bitstr):
     """ 二进制比特流->十六进制字符串 """
     bitlst = [bitstr[i:i+4] for i in range(0, len(bitstr), 4)]
     hexlst = [hex(int(i, 2))[2:].upper() for i in bitlst]
 
     return ''.join(hexlst)
+
 
 def takeTime(func):
     """ 装饰器: 计算函数运行耗时"""
