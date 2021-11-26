@@ -1,34 +1,33 @@
 from fractions import Fraction
 from __util import *
-EO = 'O' # 全局变量, Ep(a,b)上的无穷远点O
+EO = (0, 0) # 全局变量, Ep(a,b)上的无穷远点O
 
 class ECC():
     """ 椭圆曲线密码体制
-        -------------
         实现椭圆曲线点的运算, 消息的加密等
+        可应用于 Elgamal 加密
+        ---------------------------
         曲线方程: y^2 = x^3 + ax - b
         * a : Ep(a, b) 中的 a
         * b : Ep(a, b) 中的 b
         * p : GF(p), y^2 mod p 中的 p
-
     """
     def __init__(self, a, b, p):
         if 4*a**3 + 27*b**2 == 0: 
             print("非法椭圆曲线，请重新输入")
         self.a, self.b, self.p = a, b, p
-        Eset = self.genEset(a, b, p)
 
-    @staticmethod
-    def genEset(a, b, p):
+    def genEset(self):
         """ 生成椭圆曲线的点集 Ep(a, b) 
             * return : 点集列表[(x1,y1), (x2,y2), ··· ]
         """
-        Eset = ['O']
+        a, b, p = self.a, self.b, self.p
+        Eset = [EO] # 先将定义`点集Ep(a,b)`的加法幺元
         for x in range(0, p):
-            val = (x**3 + a*x + b) % p  # 计算待开方的值
-            if isQuadricReside(val, p) == 1:
-                """若 val 是 p 的平方剩余, 则求平方剩余的根"""
-                solution = calcResideRoot(val, p)
+            sqr = (x**3 + a*x + b) % p  # 计算待开方的值
+            if isQuadricReside(sqr, p) == 1:
+                #若 val 是 p 的平方剩余, 则求平方剩余的根
+                solution = calcResideRoot(sqr, p)
                 Eset.append((x, solution[0]))
                 Eset.append((x, solution[1]))
         return  Eset

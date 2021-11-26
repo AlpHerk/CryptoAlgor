@@ -1,7 +1,7 @@
 from __util import *
 
 
-class PolyalphabetCipher():
+class Polyalphabet():
     """ 多表代换加密 """
     
     def __init__(self, inputkey=None):
@@ -45,7 +45,7 @@ class PolyalphabetCipher():
 
 if __name__ == '__main__':
 
-    crypto = PolyalphabetCipher()
+    crypto = Polyalphabet()
 
     plaintext = input("输入明文: ")
     print("加密结果:", crypto.enCrypt(plaintext))

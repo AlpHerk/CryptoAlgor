@@ -1,3 +1,4 @@
+
 class ShiftCipher():
     """ 移位变换加密 """
     

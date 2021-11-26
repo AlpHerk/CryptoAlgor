@@ -8,8 +8,8 @@ def takeTime(func):
         startime = time.time()
         func(*args)
         endtime  = time.time()
-        taketime = round((endtime - startime)*10**6)
-        print(f"->运算耗时: {taketime} 微秒")
+        taketime = round((endtime - startime)*10**3)
+        print(f"->运算耗时: {taketime} 毫秒")
         return func
     return decorated
 

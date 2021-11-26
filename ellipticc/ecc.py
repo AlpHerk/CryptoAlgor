@@ -5,7 +5,7 @@ class ECC():
     """ 椭圆曲线密码体制
         实现椭圆曲线点的运算, 消息的加密等
         可应用于 Elgamal 加密
-        ----------------------------
+        ------------------------------
         此 ECC类 用到运算符重载, 代码较复杂
         可以参看简化版:`ecc2.py`中的 ECC类
         曲线方程: y^2 = x^3 + ax - b
@@ -13,7 +13,6 @@ class ECC():
         * b : Ep(a, b) 中的 b
         * p : GF(p), y^2 mod p 中的 p
     """
-
     def __init__(self, a, b, p):
         if 4 * a**3 + 27 * b**2 == 0:
             print("非法椭圆曲线，请重新输入")
@@ -27,7 +26,7 @@ class ECC():
         """
         a, b, p = self.a, self.b, self.p
 
-        Eset = [(0, 0)] # 定义一个`点集Ep(a,b)`的加法幺元
+        Eset = [EO.point] # 定义一个`点集Ep(a,b)`的加法幺元
         for x in range(0, p):
             sqr = (x**3 + a*x + b) % p  # 计算待开方的值
             if isQuadricReside(sqr, p) == 1:
@@ -99,13 +98,19 @@ class ECC():
             """ 重载函数`print`: 打印对象point的点(x,y) """
             # 获取point对象的坐标点point (0,0)打印字母O
             disp = self.point 
-            disp = 'O' if disp==(0,0) else disp
+            disp = 'O' if disp==EO.point else disp
             return str(disp)
 
 
-# 全局变量, 自定义加法幺元
-EO = ECC(1,1,1).point(0, 0) 
+# 全局变量: 自定义加法幺元, 即 EO.point = (0, 0)
+# ECC()中数字随便, point(x,0)中 x随便, y必须是 0 或 p
+EO = ECC(1,1,1).point('O', 'O')
 
+""" 幺元为什么取('O', 'O') ?
+    因为('O', 'O')连坐标都不是, 自然不在曲线 y^3=x^3+ax+b上
+    它只是一个符号, 写成('O', 'O')只是因为坐标(x,y)有两个分量
+    仅仅是为了方便运算, 它只是一个符号
+"""
 
 if __name__ == '__main__':
 

@@ -1,4 +1,4 @@
-from classcipher import PolyalphabetCipher
+from classcipher import Polyalphabet
 
 keyA = [[3, 13, 21, 9],
        [15, 10, 6, 25],
@@ -11,6 +11,6 @@ inputkey = [keyA, keyB]
 plaintext  = "please send me the book my credit card no is six one two one three eight six zero one six eight four nine seven zero two"
 ciphertext = "nqxb btwb dcjj ijdt xdcf yfsg lygd moxn llgn hapc qzzq zcrg zezj uieb rrsg nemv qdje mxna ierp xakm yrby tqfm nemv fnwo"
 
-crypto = PolyalphabetCipher(inputkey)
+crypto = Polyalphabet(inputkey)
 print("加密结果:", crypto.enCrypt(plaintext))
 print("解密结果:", crypto.deCrypt(ciphertext))

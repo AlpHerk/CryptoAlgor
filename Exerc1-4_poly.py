@@ -1,6 +1,6 @@
 import numpy as np
 import time
-from classcipher import PolyalphabetCipher
+from classcipher import Polyalphabet
 from itertools import product
 
 
@@ -25,7 +25,7 @@ def crackCipher(keyA_list, keyB = [0, 0]):
         detA = np.round(np.linalg.det(keyA)).astype(int)
 
         if (detA > 0) and (np.gcd(detA, 26) == 1):
-            crypto = PolyalphabetCipher([keyA, keyB])
+            crypto = Polyalphabet([keyA, keyB])
             ciphertext = crypto.enCrypt("dont").replace(" ", "")
             print(f"\r--正在匹配密文: {ciphertext}", end='')
 
