@@ -35,9 +35,8 @@ def Elgamal_exam436():
 
 @takeTime
 def crackElgamal():
+    """ 破解例题中 Alice 的私钥 """
     ellip = ECC(-1, 188, 751)
-    G  = ellip.point(0, 376)
-    PA = ellip.point(201, 5)
     PM = ellip.point(562, 201)
     C1 = ellip.point(676, 558)
     C2 = ellip.point(385, 328)
