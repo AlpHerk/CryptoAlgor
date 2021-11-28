@@ -22,8 +22,6 @@
 > __util.py     |   置换运算、编码操作等   
 > des.py        |   DES加解密核心  
 
-> 例题实现于 des.py 的 __main__ 中
-
 
 ---
 ### [3.RSA加密模块 RsaCipher][3]
@@ -32,8 +30,6 @@
 > \_\_init\_\_.py|  初始化模块路径，导入子文件中的加解密类
 > __util.py     |   基本算法、编码操作等  
 > rsa.py        |   RSA加解密核心  
-
-> 例题实现于 rsa.py 的 __main__ 中
 
 
 ---
@@ -44,7 +40,6 @@
 > __util.py     |   求平方剩余、求同余式等  
 > ecc.py        |   ECC椭圆曲线类 
 
-> 例题实现于 ecc.py 的 __main__ 中  
 
 **1.ecc.py与ecc2.py区别**  
 
@@ -60,11 +55,12 @@
     因为('O', 'O')连坐标都不是, 自然不在曲线 y^3=x^3+ax+b上
     它只是一个符号, 写成('O', 'O')只是因为坐标(x,y)有两个分量
     仅仅是为了方便运算, 它只是一个符号
-        
+
+> 部分例题在模块文件的 __main__ 中  
 > Exam, Exerc等.py文件为《现代密码学第4版 杨波》例题及习题
 
 
 [1]: https://blog.csdn.net/Alpherkin/article/details/121021025
 [2]: https://blog.csdn.net/Alpherkin/article/details/121198150
 [3]: https://blog.csdn.net/Alpherkin/article/details/121265516
-[4]: https://blog.csdn.net/Alpherkin/article/details/121265516
+[4]: https://blog.csdn.net/Alpherkin/article/details/121572624
