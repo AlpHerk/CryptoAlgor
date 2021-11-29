@@ -15,7 +15,7 @@ def extendGcd(a, b):
 		x, y = y, x - (a//b) * y
 		return x, y
 
-def modInvElem(a:int, m):
+def modInvElem(a, m):
 	""" 求整数a关于1模m的乘法逆元 """
 	if (gcd(a, m) !=1):
 		return -1
