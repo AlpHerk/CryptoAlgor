@@ -4,19 +4,25 @@ import numpy as np
 class MathUtil():
     """ 数学运算工具类 """
 
-    def extendGcd(a, b):
+    def gcd(x, y):
+        """欧几里德算法"""
+        while x > 0:
+            x, y = y % x, x
+        return y
+
+    def extEuclid(a, b):
         """扩展欧几里德算法"""
         if b == 0:
             return a, b
         else:
-            x, y = MathUtil.extendGcd(b, a % b)
+            x, y = MathUtil.extEuclid(b, a % b)
             x, y = y, x - (a//b) * y
             return x, y
 
     def modInvElem(a:int, m=26):
         """求整数a关于1模m的乘法逆元"""
         if (np.gcd(a, m) !=1): return -1
-        inva, _ = MathUtil.extendGcd(a, m)
+        inva, _ = MathUtil.extEuclid(a, m)
         inva %= m
         return inva
 

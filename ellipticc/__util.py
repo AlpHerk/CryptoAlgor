@@ -7,14 +7,14 @@ def gcd(x, y):
 	return y
 
 
-def extendGcd(a, b):
+def extEuclid(a, b):
     """ 扩展欧几里德算法 求同余式
         求 a*x +b*y = gcd(a,b) 解
     """
     if b == 0:
         return a, b
     else:
-        x, y = extendGcd(b, a % b)
+        x, y = extEuclid(b, a % b)
         x, y = y, x - (a//b) * y
         return x, y
 
@@ -58,7 +58,7 @@ def calcCongruence(n, p):
     # 即求不定 a*x + p*y = b 的解 x
     a, b = n.denominator, n.numerator
     coef = b  // gcd(a, p)
-    x, _ = extendGcd(a, p)
+    x, _ = extEuclid(a, p)
     return (coef * x) % p
 
 

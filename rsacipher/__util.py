@@ -6,12 +6,12 @@ def gcd(x, y):
 		x, y = y % x, x
 	return y
 
-def extendGcd(a, b):
+def extEuclid(a, b):
 	""" 扩展欧几里德算法 """
 	if b == 0:
 		return a, b
 	else:
-		x, y = extendGcd(b, a % b)
+		x, y = extEuclid(b, a % b)
 		x, y = y, x - (a//b) * y
 		return x, y
 
@@ -19,7 +19,7 @@ def modInvElem(a, m):
 	""" 求整数a关于1模m的乘法逆元 """
 	if (gcd(a, m) !=1):
 		return -1
-	inva, _ = extendGcd(a, m)
+	inva, _ = extEuclid(a, m)
 	inva %= m
 	return inva
 
