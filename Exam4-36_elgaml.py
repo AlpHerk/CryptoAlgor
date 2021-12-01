@@ -44,7 +44,7 @@ def crackElgamal():
     for i in range(1, 1000):
         tmp = C2 - i*C1
         if tmp.point == PM.point:
-            print("\nAlice选择的密钥为:", i)
+            print("\nAlice选择的私钥为:", i)
             return i
     print("\n未破解成功, 请加大迭代次数")
     return 0
